@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import debounce from 'lodash/debounce';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -8,12 +9,12 @@ class SearchBar extends Component {
     };
   }
 
-  handleInput = input => {
+  handleInput = debounce(input => {
     this.setState({
       input
     });
     this.props.handleInputChange(input);
-  };
+  }, 300);
 
   render() {
     return (
