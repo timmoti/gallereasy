@@ -2,7 +2,7 @@ import React from 'react';
 
 const Image = ({
   images: {
-    fixed_height_still: { url }
+    downsized_still: { url }
   }
 }) => {
   return (
