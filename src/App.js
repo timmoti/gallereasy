@@ -1,36 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import SearchBar from './components/SearchBar';
-import ImagesContainer from './components/ImagesContainer';
-import getImages from './data/getImages';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navigation from './components/Navigation';
+import SearchPage from './components/SearchPage';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      images: []
-    };
-  }
-
-  handleInputChange = async input => {
-    try {
-      const images = await getImages(input);
-      this.setState({
-        images
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <SearchBar handleInputChange={this.handleInputChange} />
-        <ImagesContainer images={this.state.images} />
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <div className="App">
+      <Router>
+        <div>
+          <Navigation />
+          <Switch>
+            <Route exact path="/" component={SearchPage} />
+            <Route exact path="/search" component={SearchPage} />
+            <Route exact path="/favourites" component={SearchPage} />
+          </Switch>
+        </div>
+      </Router>
+    </div>
+  );
+};
 
 export default App;

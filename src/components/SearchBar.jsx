@@ -18,8 +18,12 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="searchbar">
-        <input onChange={event => this.handleInput(event.target.value)} />
+      <div>
+        <input
+          className="searchbar"
+          onChange={event => this.handleInput(event.target.value)}
+          placeholder="Start searching for images!"
+        />
       </div>
     );
   }
