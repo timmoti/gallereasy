@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
-// import { Icon } from 'semantic-ui-react';
 import Icon from '../Icon';
 import { ICONS } from '../constants';
+import Favourite from './icons/Favourite';
 
 class Image extends Component {
   constructor(props) {
     super(props);
     this.state = {
       hover: false,
-      favorited: false
+      favourited: false
     };
   }
 
-  toggleHover = () => {
+  handleMouseEnter = () => {
     this.setState({
-      hover: !this.state.hover
+      hover: true
     });
   };
 
-  //   handleClick = () => {
-  //     this.setState({
-  //         favorited: !favorited
-  //     })
-  //   }
+  handleMouseLeave = () => {
+    this.setState({
+      hover: false
+    });
+  };
+
+  handleFavourite = () => {
+    this.setState({
+      favourited: !this.state.favourited
+    });
+  };
 
   render() {
     const {
@@ -31,22 +37,23 @@ class Image extends Component {
       },
       title
     } = this.props;
+
     return (
       <div className="image-container">
         <img
           src={`${url}`}
           alt={`${title}`}
-          onMouseEnter={this.toggleHover}
-          onMouseLeave={this.toggleHover}
+          onMouseOver={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
           className="image"
         />
-        {/* <div className="overlay">
-          <Icon name="heart" size="big" />
+        {this.state.hover === true && (
+          <Favourite handleFavourite={this.handleFavourite} />
+        )}
+
+        {/* {this.state.favourited === true && (
           <Icon icon={ICONS.HEART} size={30} color="red" />
-        </div> */}
-        {/* <a href="#">
-          <i className="fa fa-heart" />
-        </a> */}
+        )} */}
       </div>
     );
   }

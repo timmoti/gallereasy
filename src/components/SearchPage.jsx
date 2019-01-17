@@ -24,7 +24,7 @@ class SearchPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="searchpage">
         <SearchBar handleInputChange={this.handleInputChange} />
         <ImagesContainer images={this.state.images} />
         <footer>

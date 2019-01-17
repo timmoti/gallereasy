@@ -3,13 +3,12 @@
   padding: 0;
   text-decoration: none;
   color: gray;
+  font-size: 100%;
 }
 
 .App {
   text-align: center;
   display: grid;
-  grid-template-rows: 1fr 1fr 9fr 1fr;
-  grid-gap: 10px;
 }
 
 .navbar {
@@ -33,7 +32,7 @@ nav a {
   font-size: 1.5em;
   outline: none;
   border-width: 0 0 2px 0;
-  width: 500px;
+  width: 30em;
   padding: 10px;
 }
 
@@ -48,39 +47,22 @@ nav a {
 
 .image {
   object-fit: cover;
-  font-family: 'object-fit: contain;';
   height: 100%;
   width: 100%;
+  z-index: 1;
 }
 
-/* .overlay {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 1;
-  transition: 0.3s ease;
-  background-color: red;
+button.favourite {
+  position: relative;
+  top: -20%;
+  left: 40%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
-
-.container:hover .overlay {
-  opacity: 1;
+button svg {
+  opacity: 0.5;
 }
-
-svg {
-  color: white;
-  font-size: 100px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-} */
 
 footer {
   color: gray;
@@ -97,29 +79,8 @@ footer span {
   padding: 5px 40px;
 }
 
-/* .image-container:hover a {
-  opacity: 1;
-  top: 0;
-  z-index: 500;
-  background: rgba(255, 255, 255, 0.5);
+@media only screen and (max-width: 850px) {
+  .images-container {
+    grid-template-columns: minmax(auto, 200px);
+  }
 }
-
-.image-container:hover a i {
-  top: 50%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
-}
-
-.image-container a {
-  display: block;
-  position: absolute;
-  top: -100%;
-  opacity: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  text-align: center;
-  color: inherit;
-} */
